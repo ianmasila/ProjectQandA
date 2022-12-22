@@ -32,9 +32,10 @@ Furthermore, authenticated users may quiz themselves by answering random questio
 
 ~~Users may access, use, and test *Project Q&A* here: <https://projectqanda.herokuapp.com>.~~ 
 
-(*Project Q&A* is no longer being hosted by Heroku).
+(*Project Q&A* is no longer being hosted on _Heroku_).
 
 ### Guidelines for running the application locally 
+
 #### ARM Architectures
 Deno images are only available for Intel/AMD architectures. There are no official Docker images for Deno for ARM-based architectures such as Apple Silicon yet. See <https://hub.docker.com/r/denoland/deno> for more information. Since this project relies on official Deno Docker images, we unfortunately cannot run *Project Q&A* locally on the Macbook M1 nor M2 chip.
 

@@ -4,6 +4,7 @@ const CONCURRENT_CONNECTIONS = 2;
 
 let connectionPool;
 if (Deno.env.get("DATABASE_URL")) {
+  // Get database configuration details from Postgres database server
   connectionPool = new Pool(Deno.env.get("DATABASE_URL"), CONCURRENT_CONNECTIONS);
 } else {
   // Get database configuration details from the environment

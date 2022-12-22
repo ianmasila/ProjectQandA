@@ -4,10 +4,12 @@ services:
   app:
     build: app
     image: app
+    # platform: linux/arm64 | actual: linux/amd64
+    # TODO: FIND A DENO IMAGE THAT ALSO WORKS WITH ARM64 ARCHITECTURE
     restart: "no"
     volumes:
       - ./app/:/app
-      - ./app-cache/:app-cache
+      # - ./app-cache/:app-cache
     ports:
       - 7777:7777
     depends_on:
@@ -25,6 +27,8 @@ services:
 
   flyway:
     image: flyway/flyway:8.4.0-alpine
+    # platform: linux/arm64 | actual: linux/amd64
+    # TODO: FIND A FLYWAY IMAGE THAT ALSO WORKS WITH ARM64 ARCHITECTURE
     depends_on:
       - database
     volumes:
@@ -33,6 +37,8 @@ services:
     env_file:
       - project.env
 
+
+  # OBSOLETE 
   # database:
   #   container_name: database-p2-192a0eb0-fc3e-46f0-8961-89d692464f65
   #   image: postgres:14.1

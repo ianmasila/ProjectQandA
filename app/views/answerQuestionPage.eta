@@ -1,0 +1,24 @@
+<% layout("./layouts/layout.eta") %>
+
+<% if (it.answerQuestionPage) { %>
+    <h3>Question</h3>
+    <p><%= it.question.question_text %></p>
+
+    <% if (it.options.length > 0) { %>
+        <h3>Options</h3>
+        <ul>
+            <% it.options.forEach((option) => { %>
+                <li><%= option.option_text %></li>
+                <form method="POST" action="/quiz/<%= it.question.topic_id %>/questions/<%= it.question.id %>/options/<%= option.id %>">
+                    <fieldset>
+                        Choose option: <input type="submit" value="Choose"/>
+                    </fieldset>
+                </form>
+            <% }); %>
+        </ul> 
+    <% } else { %>
+        <p>This question has no options available yet.</p>
+        <a href="/quiz/<%= it.question.topic_id %>">Try again later.</a>
+    <% } %>
+<% } %>
+   

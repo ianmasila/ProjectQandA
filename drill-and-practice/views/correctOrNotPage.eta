@@ -1,0 +1,16 @@
+<% layout("./layouts/layout.eta") %>
+
+<% if (it.correctOrNotPage) { %>
+    <h3>Results</h3>
+    <% if (it.isCorrect) { %>
+        <p>Correct!</p>
+        <a href="/quiz/<%= it.topicId %>">Next question</a>
+    <% } else { %>
+        <p>Incorrect!</p>
+        <p>The correct option was <%= it.correctOption.option_text %>.</p>
+        <a href="/quiz/<%= it.topicId %>">Next question</a>
+    <% } %>
+
+<% } else { %>
+    <p>Nothing to see here!</p>
+<% } %>

@@ -1,0 +1,45 @@
+<% layout("./layouts/layout.eta") %>
+
+<% if (it.topicsPage) { %> 
+    <h3>Topics</h3>
+    <% if (it.user.admin) { %>
+        <ul>
+            <% it.topics.forEach((topic) => { %>
+                <li><a href="/topics/<%= topic.id %>"><%=topic.name%></a></li>
+                <form method="POST" action="/topics/<%= topic.id %>/delete">
+                    <fieldset>
+                        <input type="submit" value="Delete"/>
+                    </fieldset>
+                </form>
+            <% }); %>
+        </ul>
+
+        <h3>Create a topic</h3>
+
+        <% if (it.errors) { %>    
+            <ul>
+                <% Object.keys(it.errors).forEach((attribute) => { %>
+                    <% Object.values(it.errors[attribute]).forEach((err) => { %>
+                        <li><%= err %></li>
+                    <% }); %>
+                <% }); %>
+            </ul>
+        <% } %>
+
+        <form method="POST" action="/topics">
+            <fieldset>
+                Topic: <input type="text" name="name" value="<%= it.name %>"/>            
+                <input type="submit" value="Create topic"/>
+            </fieldset>
+        </form>
+        
+    <% } else { %> 
+        <ul>
+            <% it.topics.forEach((topic) => { %>
+                <li><a href="/topics/<%= topic.id %>"><%= topic.name %></a></li>
+            <% }); %>
+        </ul>   
+    <% } %>
+<% } else { %>
+    <p>Nothing to see here!</p>
+<% } %>

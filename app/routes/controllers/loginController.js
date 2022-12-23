@@ -32,7 +32,6 @@ const authenticateUser = async ({ request, response, state, render }) => {
   const formData = await getData(request);
   const userFromDatabase = (await userService.findUserByEmail(formData.email));
   if (userFromDatabase.length !== 1) {
-    console.log("no such user.");
     data.errors = { emailOrPassword: { isValid: "Invalid email or password!" } };
     render("loginPage.eta", data);
     return;
@@ -40,7 +39,6 @@ const authenticateUser = async ({ request, response, state, render }) => {
   const user = userFromDatabase[0];
   const passwordMatches = await bcrypt.compare(formData.password, user.password);
   if (!passwordMatches) {
-    console.log("wrong password.");
     data.errors = { emailOrPassword: { isValid: "Invalid email or password! Please try again!" } };
     render("loginPage.eta", data)
     return;

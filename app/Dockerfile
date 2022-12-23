@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN deno cache deps.js
+# RUN deno cache deps.js
 
 CMD [ "run", "--unstable", "--watch", "--allow-net", "--allow-read", "--allow-env", "--no-check", "run-locally.js" ]
  

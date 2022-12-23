@@ -8,8 +8,7 @@ import { router } from "./routes/routes.js";
 
 const app = new Application();
 app.use(oakCors());  
-const session = new Session();
-app.use(session.initMiddleware());
+app.use(Session.initMiddleware());
 
 app.use(errorMiddleware);
 app.use(authMiddleware);

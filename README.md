@@ -30,9 +30,9 @@ Furthermore, authenticated users may quiz themselves by answering random questio
 
 ### Location of application 
 
-~~Users may access, use, and test *Project Q&A* here: <https://projectqanda.herokuapp.com>.~~ 
+Users may access *Project Q&A* here: <https://qa.fly.dev>.
 
-(*Project Q&A* is no longer being hosted on _Heroku_).
+~~Users may access *Project Q&A* here: <https://projectqanda.herokuapp.com>.~~
 
 ### Guidelines for running the application locally 
 

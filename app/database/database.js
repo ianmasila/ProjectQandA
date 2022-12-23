@@ -4,6 +4,7 @@ const CONCURRENT_CONNECTIONS = 2;
 
 let connectionPool;
 if (Deno.env.get("DATABASE_URL")) {
+  console.log("established database server.")
   // Get database configuration details from Postgres database server
   connectionPool = new Pool(Deno.env.get("DATABASE_URL"), CONCURRENT_CONNECTIONS);
 } else {
@@ -12,12 +13,16 @@ if (Deno.env.get("DATABASE_URL")) {
 }
 
 const executeQuery = async (query, ...args) => {
+  // ...args represents a variable number of arguments
+  // args is an array 
   const response = {};
   let client;
 
   try {
     client = await connectionPool.connect();
-    const result = await client.queryObject(query, ...args);
+    console.log("connected to database client.");
+    const result = await client.queryObject(query, args);
+    console.log("database client queried.");
     if (result.rows) {
       response.rows = result.rows;
     }

@@ -3,7 +3,7 @@
 <% if (it.mainPage) { %> 
     <h1>Project Q&A</h1>
 
-    <p>Project Q&A is an application where you can test your knowledge on certain topics. Anyone using the application can answer random questions from random topics via Project Q&A's API.</p>
+    <p>Project Q&A is an application where you can test your knowledge on certain topics. Anyone using the application can answer random questions from random topics via Project Q&A's <a href="/api/questions/random">API</a>.</p>
     <p>Moreover, users who have logged into their Project Q&A accounts have access to all available topics and their respective questions. They may also add questions and answer options to any topic.</p>
     <p>Furthermore, authenticated users may quiz themselves by answering random questions on any available topic and getting immediate feedback.</p>
     

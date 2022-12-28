@@ -4,7 +4,7 @@ const CONCURRENT_CONNECTIONS = 2;
 
 let connectionPool;
 if (Deno.env.get("DATABASE_URL")) {
-  console.log("established database server.")
+  console.log("established database server.");
   // Get database configuration details from Postgres database server
   connectionPool = new Pool(Deno.env.get("DATABASE_URL"), CONCURRENT_CONNECTIONS);
 } else {

@@ -1,4 +1,10 @@
 # fly.toml file generated for qa on 2022-12-23T14:44:01+08:00
+# Deployment
+# cd app
+# flyctl auth login 
+# flyctl launch (creates an app: creates fly.toml file)
+# flyctl deploy
+# flyctl open
 
 app = "qa"
 kill_signal = "SIGINT"
